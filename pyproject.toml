@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omen-psu-monitor"
+dynamic = ["version"]
+description = "Windows HP OMEN PSU telemetry monitor with HWiNFO custom sensor integration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "OMEN PSU Monitor contributors"}]
+dependencies = []
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Win32 (MS Windows)",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Hardware",
+  "Topic :: System :: Monitoring",
+]
+
+[project.gui-scripts]
+omen-psu-monitor = "omen_psu_app:main"
+
+[tool.setuptools]
+py-modules = ["app_version", "omen_psu_app", "psu_service", "hwinfo_bridge", "hp_omen_psu_monitor", "hp_omen_psu_input_probe"]
+
+[tool.setuptools.dynamic]
+version = {attr = "app_version.VERSION"}
